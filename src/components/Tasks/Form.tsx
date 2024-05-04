@@ -1,11 +1,11 @@
 import styles from './Tasks.module.css'
-import { Task } from './Tasks';
+import { TaskProps } from './Tasks';
 import { v4 as uuidv4 } from 'uuid';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
 
 interface FormProps {
-  onTaskAdd: (task: Task) => void;
+  onTaskAdd: (task: TaskProps) => void;
 }
 
 export function Form({ onTaskAdd }: FormProps) {

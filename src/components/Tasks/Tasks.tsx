@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Form } from './Form';
 import { List } from './List';
 
-export interface Task {
+export interface TaskProps {
   id: string;
   isComplete: boolean;
   content: string;
@@ -11,9 +11,9 @@ export interface Task {
 
 export function Tasks() {
 
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<TaskProps[]>([])
 
-  function addTask(task: Task) {
+  function addTask(task: TaskProps) {
     setTasks((state) => {
       return [
         ...state,
@@ -22,13 +22,13 @@ export function Tasks() {
     })
   }
 
-  function deleteTask(task: Task) {
+  function deleteTask(task: TaskProps) {
     setTasks((state) => {
       return state.filter(t => t != task)
     })
   }
 
-  function completeTask(task: Task) {
+  function completeTask(task: TaskProps) {
     setTasks(tasks.map(t => {
       if (t.id === task.id) {
         t.isComplete = !t.isComplete
